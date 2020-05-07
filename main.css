@@ -1,0 +1,227 @@
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  background-color: #fff;
+  font: 400 100%/1.5rem "Helvetica", "Arial", sans-serif;
+  overflow-y: hidden;
+  color: #141414; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+html, body, top {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-height: 100vh; }
+
+span.clear {
+  display: block;
+  clear: both; }
+
+.hide {
+  display: none; }
+
+::selection {
+  background-color: #3297fd;
+  text-shadow: none; }
+
+#bookletbox {
+  display: block;
+  width: 100vw;
+  height: calc(100vh - 14rem - 30px);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow-y: scroll; }
+
+#bookletpage {
+  display: block;
+  margin: 40px auto 200px auto;
+  width: 80vw; }
+
+#menubar {
+  display: block;
+  width: 100%;
+  height: 30px;
+  background-color: #e3f2fd;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-align: center;
+  line-height: 30px;
+  border-bottom: 1px solid #fff; }
+
+div.inputs {
+  width: 100vw;
+  height: 14rem;
+  position: fixed;
+  bottom: 0;
+  background-color: #bbdefb;
+  border-top: 1px solid #fff;
+  margin: 0;
+  padding: 0;
+  border: 0; }
+
+.smallcaps {
+  font-variant: small-caps;
+  font-weight: 700; }
+
+.dropdown {
+  font-family: "Consolas", monospace; }
+
+nav.arrow {
+  display: block;
+  height: 14rem;
+  width: 14rem;
+  float: left;
+  background-color: #bbdefb;
+  cursor: pointer;
+  color: #90caf9;
+  text-align: center; }
+
+nav.arrow:hover {
+  background-color: #e3f2fd; }
+
+main {
+  display: block;
+  height: 14rem;
+  width: calc(100vw - 28rem);
+  float: left; }
+
+.formbox {
+  display: none;
+  width: 600px;
+  margin: 1rem auto;
+  padding: 0;
+  border: 1px;
+  text-align: left; }
+
+.formbox.show {
+  display: block; }
+
+.fa-vc {
+  line-height: 14rem !important; }
+
+.floatleft, .floatright, .floatcentre {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  padding: 0 .6rem; }
+
+.floatleft, .floatright {
+  color: #bbdefb; }
+
+.floatleft {
+  display: inline-block;
+  float: left; }
+
+.floatcentre {
+  display: inline-block;
+  clear: left; }
+
+.floatright {
+  display: inline-block;
+  float: right; }
+
+#drag {
+  position: absolute;
+  margin: -4px 0;
+  height: 8px;
+  width: 100%;
+  cursor: ns-resize; }
+
+div.answer_index {
+  display: block;
+  float: left;
+  margin: 0 12px 12px 0;
+  padding: 4px;
+  border: 2px solid #141414;
+  background-color: #e3f2fd;
+  font-weight: 700;
+  height: 29px;
+  width: 36px;
+  text-align: center;
+  line-height: 17px; }
+
+select.supplementary_outcome {
+  display: block;
+  float: left;
+  width: 270px;
+  margin: 0 12px 12px 0;
+  padding: 4px;
+  border: 0;
+  border: 2px solid #141414; }
+
+select.supplementary_category {
+  display: block;
+  float: left;
+  width: 270px;
+  margin: 0 0 12px 0;
+  padding: 4px;
+  border: 0;
+  border: 2px solid #141414; }
+
+input.supplementary_comment {
+  display: block;
+  clear: both;
+  margin: 12px 0;
+  padding: 4px;
+  border: 0;
+  width: 100%;
+  border-bottom: 2px solid #141414; }
+
+select.supplementary_outcome:focus, select.supplementary_category:focus {
+  border: 2px solid red; }
+
+input.supplementary_comment:focus {
+  border-bottom: 2px solid red; }
+
+button.supplementary_button {
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 4px 8px;
+  border: 0;
+  border: 2px solid #e3f2fd;
+  background-color: #e3f2fd;
+  height: 29px; }
+
+button.supplementary_button.on:after {
+  content: " \f00c";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900; }
+
+button.supplementary_tag {
+  width: 110px;
+  margin-right: 4px; }
+
+button.supplementary_tag:last-of-type {
+  margin-right: 12px; }
+
+button.supplementary_original {
+  width: 119px;
+  margin-right: 12px; }
+
+button.supplementary_blank {
+  width: 119px;
+  margin-right: 0; }
+
+button.supplementary_button:focus {
+  outline: none;
+  border: 2px solid red; }
+
+select:focus, input:focus {
+  outline: none; }
+
+fieldset {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  border: 0; }
+
+/*# sourceMappingURL=main.css.map */

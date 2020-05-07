@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<title>M36, Step 1</title>
+		<link rel="stylesheet" type="text/css" href="main.css" />
+		<script   src="https://code.jquery.com/jquery-3.3.1.min.js"  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="  crossorigin="anonymous"></script>
+		<script src="js/jquery.scrollTo.min.js"></script>
+        <script type="text/javascript" src="js/mousetrap.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+	</head>
+
+	<body>
+		
+		<div id="menubar">
+			<div class="floatleft">
+				<i class="fas fa-inbox"></i>
+			</div>
+			
+
+			<div class="floatcentre">
+				<span class="smallcaps">booklet</span>
+				<select class="dropdown" id="booklets" onchange="toggleBooklet()" disabled>
+				  <option value="M36">M36</option>
+				  <option value="M102">M102</option>
+				  <option value="M18">M18</option>
+				  <option value="M21">M21</option>
+				  <option value="M45">M45</option>
+				  <option value="M50">M50</option>
+				</select>
+				&nbsp;|&nbsp;
+				<span class="smallcaps">step</span>
+				<select class="dropdown" id="steps" onchange="toggleStep()">
+				  <option value="1a">1. Problems  (1-4)</option>
+				  <option value="1b">1. Problems  (5-8)</option>
+				  <option value="1c">1. Problems  (9-12)</option>
+				  <option value="1d">1. Problems  (13-16)</option>
+				  <option value="2">2. Underlying Problem</option>
+				  <option value="3a">3. Solutions (1-4)</option>
+				  <option value="3b">3. Solutions (5-8)</option>
+				  <option value="3c">3. Solutions (9-12)</option>
+				  <option value="3d">3. Solutions (13-16)</option>
+				  <option value="4">4. Criteria</option>
+				  <option value="5">5. Rubric</option>
+				  <option value="6a">6. Action Plan</option>
+				</select>
+			</div>
+			
+			<div class="floatright">
+				<i class="fas fa-search"></i>
+				&nbsp;|&nbsp;
+				<i class="fas fa-info"></i>
+			</div>
+		</div>
+
+		<div id="bookletbox">
+			<img src="img/0001.jpg" id="bookletpage" />
+		</div>
+
+		<div id="inputs" class="inputs">
+
+			<div id="drag"></div>
+
+			<nav id="backarrow" class="arrow" onclick="previous_state()"><i class="fas fa-chevron-left fa-vc"></i></nav>
+
+			<main>
+
+				<div id="form-s1-1" class="formbox show">
+
+					<div class="answer_index">1</div>
+
+					<select class="supplementary_outcome">
+					  <option value="" disabled selected>Y/P</option>
+					  <option value="Y">Yes</option>
+					  <option value="P">Perhaps</option>
+					  <option value="S">Solution</option>
+					  <option value="D">Duplicate</option>
+					  <option value="W">Why</option>
+					</select>
+
+					<select class="supplementary_category">
+					  <option value="" disabled selected>Category</option>
+					  <option value="10">Arts & Aesthetics</option>
+					  <option value="13">Basic Needs</option>
+					  <option value="1">Business & Commerce</option>
+					  <option value="17">Communication</option>
+					  <option value="15">Economics</option>
+					  <option value="5">Education</option>
+					  <option value="4">Environment</option>
+					  <option value="9">Ethics & Religion</option>
+					  <option value="14">Defence</option>
+					  <option value="8">Government & Politics</option>
+					  <option value="16">Law & Justice</option>
+					  <option value="11">Physical Health</option>
+					  <option value="12">Psychological Health</option>
+					  <option value="7">Recreation</option>
+					  <option value="3">Social Relationships</option>
+					  <option value="6">Technology</option>
+					  <option value="2">Transportation</option>
+					  <option value="18">Miscellaneous</option>
+					</select>
+
+
+					<input type="text" class="supplementary_comment">
+
+					<span>
+						<button class="supplementary_button supplementary_tag">Creative</button>
+						<button class="supplementary_button supplementary_tag">Futuristic</button>
+						<button class="supplementary_button supplementary_tag">Researched</button>
+					</span>
+					<button class="supplementary_button supplementary_original">Original</button>
+					<button class="supplementary_button supplementary_blank">Blank</button>
+				</div>
+
+				<div id="form-s1-2" class="formbox">
+
+					<div class="answer_index">2</div>
+
+					<select class="supplementary_outcome">
+					  <option value="" disabled selected>Y/P</option>
+					  <option value="Y">Yes</option>
+					  <option value="P">Perhaps</option>
+					  <option value="S">Solution</option>
+					  <option value="D">Duplicate</option>
+					  <option value="W">Why</option>
+					</select>
+
+					<select class="supplementary_category">
+					  <option value="" disabled selected>Category</option>
+					  <option value="10">Arts & Aesthetics</option>
+					  <option value="13">Basic Needs</option>
+					  <option value="1">Business & Commerce</option>
+					  <option value="17">Communication</option>
+					  <option value="15">Economics</option>
+					  <option value="5">Education</option>
+					  <option value="4">Environment</option>
+					  <option value="9">Ethics & Religion</option>
+					  <option value="14">Defence</option>
+					  <option value="8">Government & Politics</option>
+					  <option value="16">Law & Justice</option>
+					  <option value="11">Physical Health</option>
+					  <option value="12">Psychological Health</option>
+					  <option value="7">Recreation</option>
+					  <option value="3">Social Relationships</option>
+					  <option value="6">Technology</option>
+					  <option value="2">Transportation</option>
+					  <option value="18">Miscellaneous</option>
+					</select>
+
+
+					<input type="text" class="supplementary_comment">
+
+					<span>
+						<button class="supplementary_button supplementary_tag">Creative</button>
+						<button class="supplementary_button supplementary_tag">Futuristic</button>
+						<button class="supplementary_button supplementary_tag">Researched</button>
+					</span>
+					<button class="supplementary_button supplementary_original">Original</button>
+					<button class="supplementary_button supplementary_blank">Blank</button>
+				</div>
+
+				<div id="form-s1-3" class="formbox">
+
+					<div class="answer_index">3</div>
+
+					<select class="supplementary_outcome">
+					  <option value="" disabled selected>Y/P</option>
+					  <option value="Y">Yes</option>
+					  <option value="P">Perhaps</option>
+					  <option value="S">Solution</option>
+					  <option value="D">Duplicate</option>
+					  <option value="W">Why</option>
+					</select>
+
+					<select class="supplementary_category">
+					  <option value="" disabled selected>Category</option>
+					  <option value="10">Arts & Aesthetics</option>
+					  <option value="13">Basic Needs</option>
+					  <option value="1">Business & Commerce</option>
+					  <option value="17">Communication</option>
+					  <option value="15">Economics</option>
+					  <option value="5">Education</option>
+					  <option value="4">Environment</option>
+					  <option value="9">Ethics & Religion</option>
+					  <option value="14">Defence</option>
+					  <option value="8">Government & Politics</option>
+					  <option value="16">Law & Justice</option>
+					  <option value="11">Physical Health</option>
+					  <option value="12">Psychological Health</option>
+					  <option value="7">Recreation</option>
+					  <option value="3">Social Relationships</option>
+					  <option value="6">Technology</option>
+					  <option value="2">Transportation</option>
+					  <option value="18">Miscellaneous</option>
+					</select>
+
+
+					<input type="text" class="supplementary_comment">
+
+					<span>
+						<button class="supplementary_button supplementary_tag">Creative</button>
+						<button class="supplementary_button supplementary_tag">Futuristic</button>
+						<button class="supplementary_button supplementary_tag">Researched</button>
+					</span>
+					<button class="supplementary_button supplementary_original">Original</button>
+					<button class="supplementary_button supplementary_blank">Blank</button>
+				</div>
+
+				<div id="form-s1-4" class="formbox">
+
+					<div class="answer_index">4</div>
+
+					<select class="supplementary_outcome">
+					  <option value="" disabled selected>Y/P</option>
+					  <option value="Y">Yes</option>
+					  <option value="P">Perhaps</option>
+					  <option value="S">Solution</option>
+					  <option value="D">Duplicate</option>
+					  <option value="W">Why</option>
+					</select>
+
+					<select class="supplementary_category">
+					  <option value="" disabled selected>Category</option>
+					  <option value="10">Arts & Aesthetics</option>
+					  <option value="13">Basic Needs</option>
+					  <option value="1">Business & Commerce</option>
+					  <option value="17">Communication</option>
+					  <option value="15">Economics</option>
+					  <option value="5">Education</option>
+					  <option value="4">Environment</option>
+					  <option value="9">Ethics & Religion</option>
+					  <option value="14">Defence</option>
+					  <option value="8">Government & Politics</option>
+					  <option value="16">Law & Justice</option>
+					  <option value="11">Physical Health</option>
+					  <option value="12">Psychological Health</option>
+					  <option value="7">Recreation</option>
+					  <option value="3">Social Relationships</option>
+					  <option value="6">Technology</option>
+					  <option value="2">Transportation</option>
+					  <option value="18">Miscellaneous</option>
+					</select>
+
+
+					<input type="text" class="supplementary_comment">
+
+					<span>
+						<button class="supplementary_button supplementary_tag">Creative</button>
+						<button class="supplementary_button supplementary_tag">Futuristic</button>
+						<button class="supplementary_button supplementary_tag">Researched</button>
+					</span>
+					<button class="supplementary_button supplementary_original">Original</button>
+					<button class="supplementary_button supplementary_blank">Blank</button>
+				</div>
+
+				<div id="form-s1-5" class="formbox">
+
+					<div class="answer_index">5</div>
+
+					<select class="supplementary_outcome">
+					  <option value="" disabled selected>Y/P</option>
+					  <option value="Y">Yes</option>
+					  <option value="P">Perhaps</option>
+					  <option value="S">Solution</option>
+					  <option value="D">Duplicate</option>
+					  <option value="W">Why</option>
+					</select>
+
+					<select class="supplementary_category">
+					  <option value="" disabled selected>Category</option>
+					  <option value="10">Arts & Aesthetics</option>
+					  <option value="13">Basic Needs</option>
+					  <option value="1">Business & Commerce</option>
+					  <option value="17">Communication</option>
+					  <option value="15">Economics</option>
+					  <option value="5">Education</option>
+					  <option value="4">Environment</option>
+					  <option value="9">Ethics & Religion</option>
+					  <option value="14">Defence</option>
+					  <option value="8">Government & Politics</option>
+					  <option value="16">Law & Justice</option>
+					  <option value="11">Physical Health</option>
+					  <option value="12">Psychological Health</option>
+					  <option value="7">Recreation</option>
+					  <option value="3">Social Relationships</option>
+					  <option value="6">Technology</option>
+					  <option value="2">Transportation</option>
+					  <option value="18">Miscellaneous</option>
+					</select>
+
+
+					<input type="text" class="supplementary_comment">
+
+					<span>
+						<button class="supplementary_button supplementary_tag">Creative</button>
+						<button class="supplementary_button supplementary_tag">Futuristic</button>
+						<button class="supplementary_button supplementary_tag">Researched</button>
+					</span>
+					<button class="supplementary_button supplementary_original">Original</button>
+					<button class="supplementary_button supplementary_blank">Blank</button>
+				</div>
+
+				<div id="form-s1-6" class="formbox">
+
+					<div class="answer_index">6</div>
+
+					<select class="supplementary_outcome">
+					  <option value="" disabled selected>Y/P</option>
+					  <option value="Y">Yes</option>
+					  <option value="P">Perhaps</option>
+					  <option value="S">Solution</option>
+					  <option value="D">Duplicate</option>
+					  <option value="W">Why</option>
+					</select>
+
+					<select class="supplementary_category">
+					  <option value="" disabled selected>Category</option>
+					  <option value="10">Arts & Aesthetics</option>
+					  <option value="13">Basic Needs</option>
+					  <option value="1">Business & Commerce</option>
+					  <option value="17">Communication</option>
+					  <option value="15">Economics</option>
+					  <option value="5">Education</option>
+					  <option value="4">Environment</option>
+					  <option value="9">Ethics & Religion</option>
+					  <option value="14">Defence</option>
+					  <option value="8">Government & Politics</option>
+					  <option value="16">Law & Justice</option>
+					  <option value="11">Physical Health</option>
+					  <option value="12">Psychological Health</option>
+					  <option value="7">Recreation</option>
+					  <option value="3">Social Relationships</option>
+					  <option value="6">Technology</option>
+					  <option value="2">Transportation</option>
+					  <option value="18">Miscellaneous</option>
+					</select>
+
+
+					<input type="text" class="supplementary_comment">
+
+					<span>
+						<button class="supplementary_button supplementary_tag">Creative</button>
+						<button class="supplementary_button supplementary_tag">Futuristic</button>
+						<button class="supplementary_button supplementary_tag">Researched</button>
+					</span>
+					<button class="supplementary_button supplementary_original">Original</button>
+					<button class="supplementary_button supplementary_blank">Blank</button>
+				</div>
+
+				<div id="form-s1-7" class="formbox">
+
+					<div class="answer_index">7</div>
+
+					<select class="supplementary_outcome">
+					  <option value="" disabled selected>Y/P</option>
+					  <option value="Y">Yes</option>
+					  <option value="P">Perhaps</option>
+					  <option value="S">Solution</option>
+					  <option value="D">Duplicate</option>
+					  <option value="W">Why</option>
+					</select>
+
+					<select class="supplementary_category">
+					  <option value="" disabled selected>Category</option>
+					  <option value="10">Arts & Aesthetics</option>
+					  <option value="13">Basic Needs</option>
+					  <option value="1">Business & Commerce</option>
+					  <option value="17">Communication</option>
+					  <option value="15">Economics</option>
+					  <option value="5">Education</option>
+					  <option value="4">Environment</option>
+					  <option value="9">Ethics & Religion</option>
+					  <option value="14">Defence</option>
+					  <option value="8">Government & Politics</option>
+					  <option value="16">Law & Justice</option>
+					  <option value="11">Physical Health</option>
+					  <option value="12">Psychological Health</option>
+					  <option value="7">Recreation</option>
+					  <option value="3">Social Relationships</option>
+					  <option value="6">Technology</option>
+					  <option value="2">Transportation</option>
+					  <option value="18">Miscellaneous</option>
+					</select>
+
+
+					<input type="text" class="supplementary_comment">
+
+					<span>
+						<button class="supplementary_button supplementary_tag">Creative</button>
+						<button class="supplementary_button supplementary_tag">Futuristic</button>
+						<button class="supplementary_button supplementary_tag">Researched</button>
+					</span>
+					<button class="supplementary_button supplementary_original">Original</button>
+					<button class="supplementary_button supplementary_blank">Blank</button>
+				</div>
+
+				<div id="form-s1-8" class="formbox">
+
+					<div class="answer_index">8</div>
+
+					<select class="supplementary_outcome">
+					  <option value="" disabled selected>Y/P</option>
+					  <option value="Y">Yes</option>
+					  <option value="P">Perhaps</option>
+					  <option value="S">Solution</option>
+					  <option value="D">Duplicate</option>
+					  <option value="W">Why</option>
+					</select>
+
+					<select class="supplementary_category">
+					  <option value="" disabled selected>Category</option>
+					  <option value="10">Arts & Aesthetics</option>
+					  <option value="13">Basic Needs</option>
+					  <option value="1">Business & Commerce</option>
+					  <option value="17">Communication</option>
+					  <option value="15">Economics</option>
+					  <option value="5">Education</option>
+					  <option value="4">Environment</option>
+					  <option value="9">Ethics & Religion</option>
+					  <option value="14">Defence</option>
+					  <option value="8">Government & Politics</option>
+					  <option value="16">Law & Justice</option>
+					  <option value="11">Physical Health</option>
+					  <option value="12">Psychological Health</option>
+					  <option value="7">Recreation</option>
+					  <option value="3">Social Relationships</option>
+					  <option value="6">Technology</option>
+					  <option value="2">Transportation</option>
+					  <option value="18">Miscellaneous</option>
+					</select>
+
+
+					<input type="text" class="supplementary_comment">
+
+					<span>
+						<button class="supplementary_button supplementary_tag">Creative</button>
+						<button class="supplementary_button supplementary_tag">Futuristic</button>
+						<button class="supplementary_button supplementary_tag">Researched</button>
+					</span>
+					<button class="supplementary_button supplementary_original">Original</button>
+					<button class="supplementary_button supplementary_blank">Blank</button>
+				</div>
+
+				<div id="form-s1-9" class="formbox">
+
+					<div class="answer_index">9</div>
+
+					<select class="supplementary_outcome">
+					  <option value="" disabled selected>Y/P</option>
+					  <option value="Y">Yes</option>
+					  <option value="P">Perhaps</option>
+					  <option value="S">Solution</option>
+					  <option value="D">Duplicate</option>
+					  <option value="W">Why</option>
+					</select>
+
+					<select class="supplementary_category">
+					  <option value="" disabled selected>Category</option>
+					  <option value="10">Arts & Aesthetics</option>
+					  <option value="13">Basic Needs</option>
+					  <option value="1">Business & Commerce</option>
+					  <option value="17">Communication</option>
+					  <option value="15">Economics</option>
+					  <option value="5">Education</option>
+					  <option value="4">Environment</option>
+					  <option value="9">Ethics & Religion</option>
+					  <option value="14">Defence</option>
+					  <option value="8">Government & Politics</option>
+					  <option value="16">Law & Justice</option>
+					  <option value="11">Physical Health</option>
+					  <option value="12">Psychological Health</option>
+					  <option value="7">Recreation</option>
+					  <option value="3">Social Relationships</option>
+					  <option value="6">Technology</option>
+					  <option value="2">Transportation</option>
+					  <option value="18">Miscellaneous</option>
+					</select>
+
+
+					<input type="text" class="supplementary_comment">
+
+					<span>
+						<button class="supplementary_button supplementary_tag">Creative</button>
+						<button class="supplementary_button supplementary_tag">Futuristic</button>
+						<button class="supplementary_button supplementary_tag">Researched</button>
+					</span>
+					<button class="supplementary_button supplementary_original">Original</button>
+					<button class="supplementary_button supplementary_blank">Blank</button>
+				</div>
+
+				<div id="form-s1-10" class="formbox">
+
+					<div class="answer_index">10</div>
+
+					<select class="supplementary_outcome">
+					  <option value="" disabled selected>Y/P</option>
+					  <option value="Y">Yes</option>
+					  <option value="P">Perhaps</option>
+					  <option value="S">Solution</option>
+					  <option value="D">Duplicate</option>
+					  <option value="W">Why</option>
+					</select>
+
+					<select class="supplementary_category">
+					  <option value="" disabled selected>Category</option>
+					  <option value="10">Arts & Aesthetics</option>
+					  <option value="13">Basic Needs</option>
+					  <option value="1">Business & Commerce</option>
+					  <option value="17">Communication</option>
+					  <option value="15">Economics</option>
+					  <option value="5">Education</option>
+					  <option value="4">Environment</option>
+					  <option value="9">Ethics & Religion</option>
+					  <option value="14">Defence</option>
+					  <option value="8">Government & Politics</option>
+					  <option value="16">Law & Justice</option>
+					  <option value="11">Physical Health</option>
+					  <option value="12">Psychological Health</option>
+					  <option value="7">Recreation</option>
+					  <option value="3">Social Relationships</option>
+					  <option value="6">Technology</option>
+					  <option value="2">Transportation</option>
+					  <option value="18">Miscellaneous</option>
+					</select>
+
+
+					<input type="text" class="supplementary_comment">
+
+					<span>
+						<button class="supplementary_button supplementary_tag">Creative</button>
+						<button class="supplementary_button supplementary_tag">Futuristic</button>
+						<button class="supplementary_button supplementary_tag">Researched</button>
+					</span>
+					<button class="supplementary_button supplementary_original">Original</button>
+					<button class="supplementary_button supplementary_blank">Blank</button>
+				</div>
+
+				<div id="form-s1-11" class="formbox">
+
+					<div class="answer_index">11</div>
+
+					<select class="supplementary_outcome">
+					  <option value="" disabled selected>Y/P</option>
+					  <option value="Y">Yes</option>
+					  <option value="P">Perhaps</option>
+					  <option value="S">Solution</option>
+					  <option value="D">Duplicate</option>
+					  <option value="W">Why</option>
+					</select>
+
+					<select class="supplementary_category">
+					  <option value="" disabled selected>Category</option>
+					  <option value="10">Arts & Aesthetics</option>
+					  <option value="13">Basic Needs</option>
+					  <option value="1">Business & Commerce</option>
+					  <option value="17">Communication</option>
+					  <option value="15">Economics</option>
+					  <option value="5">Education</option>
+					  <option value="4">Environment</option>
+					  <option value="9">Ethics & Religion</option>
+					  <option value="14">Defence</option>
+					  <option value="8">Government & Politics</option>
+					  <option value="16">Law & Justice</option>
+					  <option value="11">Physical Health</option>
+					  <option value="12">Psychological Health</option>
+					  <option value="7">Recreation</option>
+					  <option value="3">Social Relationships</option>
+					  <option value="6">Technology</option>
+					  <option value="2">Transportation</option>
+					  <option value="18">Miscellaneous</option>
+					</select>
+
+
+					<input type="text" class="supplementary_comment">
+
+					<span>
+						<button class="supplementary_button supplementary_tag">Creative</button>
+						<button class="supplementary_button supplementary_tag">Futuristic</button>
+						<button class="supplementary_button supplementary_tag">Researched</button>
+					</span>
+					<button class="supplementary_button supplementary_original">Original</button>
+					<button class="supplementary_button supplementary_blank">Blank</button>
+				</div>
+
+				<div id="form-s1-12" class="formbox">
+
+					<div class="answer_index">12</div>
+
+					<select class="supplementary_outcome">
+					  <option value="" disabled selected>Y/P</option>
+					  <option value="Y">Yes</option>
+					  <option value="P">Perhaps</option>
+					  <option value="S">Solution</option>
+					  <option value="D">Duplicate</option>
+					  <option value="W">Why</option>
+					</select>
+
+					<select class="supplementary_category">
+					  <option value="" disabled selected>Category</option>
+					  <option value="10">Arts & Aesthetics</option>
+					  <option value="13">Basic Needs</option>
+					  <option value="1">Business & Commerce</option>
+					  <option value="17">Communication</option>
+					  <option value="15">Economics</option>
+					  <option value="5">Education</option>
+					  <option value="4">Environment</option>
+					  <option value="9">Ethics & Religion</option>
+					  <option value="14">Defence</option>
+					  <option value="8">Government & Politics</option>
+					  <option value="16">Law & Justice</option>
+					  <option value="11">Physical Health</option>
+					  <option value="12">Psychological Health</option>
+					  <option value="7">Recreation</option>
+					  <option value="3">Social Relationships</option>
+					  <option value="6">Technology</option>
+					  <option value="2">Transportation</option>
+					  <option value="18">Miscellaneous</option>
+					</select>
+
+
+					<input type="text" class="supplementary_comment">
+
+					<span>
+						<button class="supplementary_button supplementary_tag">Creative</button>
+						<button class="supplementary_button supplementary_tag">Futuristic</button>
+						<button class="supplementary_button supplementary_tag">Researched</button>
+					</span>
+					<button class="supplementary_button supplementary_original">Original</button>
+					<button class="supplementary_button supplementary_blank">Blank</button>
+				</div>
+
+				<div id="form-s1-13" class="formbox">
+
+					<div class="answer_index">13</div>
+
+					<select class="supplementary_outcome">
+					  <option value="" disabled selected>Y/P</option>
+					  <option value="Y">Yes</option>
+					  <option value="P">Perhaps</option>
+					  <option value="S">Solution</option>
+					  <option value="D">Duplicate</option>
+					  <option value="W">Why</option>
+					</select>
+
+					<select class="supplementary_category">
+					  <option value="" disabled selected>Category</option>
+					  <option value="10">Arts & Aesthetics</option>
+					  <option value="13">Basic Needs</option>
+					  <option value="1">Business & Commerce</option>
+					  <option value="17">Communication</option>
+					  <option value="15">Economics</option>
+					  <option value="5">Education</option>
+					  <option value="4">Environment</option>
+					  <option value="9">Ethics & Religion</option>
+					  <option value="14">Defence</option>
+					  <option value="8">Government & Politics</option>
+					  <option value="16">Law & Justice</option>
+					  <option value="11">Physical Health</option>
+					  <option value="12">Psychological Health</option>
+					  <option value="7">Recreation</option>
+					  <option value="3">Social Relationships</option>
+					  <option value="6">Technology</option>
+					  <option value="2">Transportation</option>
+					  <option value="18">Miscellaneous</option>
+					</select>
+
+
+					<input type="text" class="supplementary_comment">
+
+					<span>
+						<button class="supplementary_button supplementary_tag">Creative</button>
+						<button class="supplementary_button supplementary_tag">Futuristic</button>
+						<button class="supplementary_button supplementary_tag">Researched</button>
+					</span>
+					<button class="supplementary_button supplementary_original">Original</button>
+					<button class="supplementary_button supplementary_blank">Blank</button>
+				</div>
+
+				<div id="form-s1-14" class="formbox">
+
+					<div class="answer_index">14</div>
+
+					<select class="supplementary_outcome">
+					  <option value="" disabled selected>Y/P</option>
+					  <option value="Y">Yes</option>
+					  <option value="P">Perhaps</option>
+					  <option value="S">Solution</option>
+					  <option value="D">Duplicate</option>
+					  <option value="W">Why</option>
+					</select>
+
+					<select class="supplementary_category">
+					  <option value="" disabled selected>Category</option>
+					  <option value="10">Arts & Aesthetics</option>
+					  <option value="13">Basic Needs</option>
+					  <option value="1">Business & Commerce</option>
+					  <option value="17">Communication</option>
+					  <option value="15">Economics</option>
+					  <option value="5">Education</option>
+					  <option value="4">Environment</option>
+					  <option value="9">Ethics & Religion</option>
+					  <option value="14">Defence</option>
+					  <option value="8">Government & Politics</option>
+					  <option value="16">Law & Justice</option>
+					  <option value="11">Physical Health</option>
+					  <option value="12">Psychological Health</option>
+					  <option value="7">Recreation</option>
+					  <option value="3">Social Relationships</option>
+					  <option value="6">Technology</option>
+					  <option value="2">Transportation</option>
+					  <option value="18">Miscellaneous</option>
+					</select>
+
+
+					<input type="text" class="supplementary_comment">
+
+					<span>
+						<button class="supplementary_button supplementary_tag">Creative</button>
+						<button class="supplementary_button supplementary_tag">Futuristic</button>
+						<button class="supplementary_button supplementary_tag">Researched</button>
+					</span>
+					<button class="supplementary_button supplementary_original">Original</button>
+					<button class="supplementary_button supplementary_blank">Blank</button>
+				</div>
+
+				<div id="form-s1-15" class="formbox">
+
+					<div class="answer_index">15</div>
+
+					<select class="supplementary_outcome">
+					  <option value="" disabled selected>Y/P</option>
+					  <option value="Y">Yes</option>
+					  <option value="P">Perhaps</option>
+					  <option value="S">Solution</option>
+					  <option value="D">Duplicate</option>
+					  <option value="W">Why</option>
+					</select>
+
+					<select class="supplementary_category">
+					  <option value="" disabled selected>Category</option>
+					  <option value="10">Arts & Aesthetics</option>
+					  <option value="13">Basic Needs</option>
+					  <option value="1">Business & Commerce</option>
+					  <option value="17">Communication</option>
+					  <option value="15">Economics</option>
+					  <option value="5">Education</option>
+					  <option value="4">Environment</option>
+					  <option value="9">Ethics & Religion</option>
+					  <option value="14">Defence</option>
+					  <option value="8">Government & Politics</option>
+					  <option value="16">Law & Justice</option>
+					  <option value="11">Physical Health</option>
+					  <option value="12">Psychological Health</option>
+					  <option value="7">Recreation</option>
+					  <option value="3">Social Relationships</option>
+					  <option value="6">Technology</option>
+					  <option value="2">Transportation</option>
+					  <option value="18">Miscellaneous</option>
+					</select>
+
+
+					<input type="text" class="supplementary_comment">
+
+					<span>
+						<button class="supplementary_button supplementary_tag">Creative</button>
+						<button class="supplementary_button supplementary_tag">Futuristic</button>
+						<button class="supplementary_button supplementary_tag">Researched</button>
+					</span>
+					<button class="supplementary_button supplementary_original">Original</button>
+					<button class="supplementary_button supplementary_blank">Blank</button>
+				</div>
+
+				<div id="form-s1-16" class="formbox">
+
+					<div class="answer_index">16</div>
+
+					<select class="supplementary_outcome">
+					  <option value="" disabled selected>Y/P</option>
+					  <option value="Y">Yes</option>
+					  <option value="P">Perhaps</option>
+					  <option value="S">Solution</option>
+					  <option value="D">Duplicate</option>
+					  <option value="W">Why</option>
+					</select>
+
+					<select class="supplementary_category">
+					  <option value="" disabled selected>Category</option>
+					  <option value="10">Arts & Aesthetics</option>
+					  <option value="13">Basic Needs</option>
+					  <option value="1">Business & Commerce</option>
+					  <option value="17">Communication</option>
+					  <option value="15">Economics</option>
+					  <option value="5">Education</option>
+					  <option value="4">Environment</option>
+					  <option value="9">Ethics & Religion</option>
+					  <option value="14">Defence</option>
+					  <option value="8">Government & Politics</option>
+					  <option value="16">Law & Justice</option>
+					  <option value="11">Physical Health</option>
+					  <option value="12">Psychological Health</option>
+					  <option value="7">Recreation</option>
+					  <option value="3">Social Relationships</option>
+					  <option value="6">Technology</option>
+					  <option value="2">Transportation</option>
+					  <option value="18">Miscellaneous</option>
+					</select>
+
+
+					<input type="text" class="supplementary_comment">
+
+					<span>
+						<button class="supplementary_button supplementary_tag">Creative</button>
+						<button class="supplementary_button supplementary_tag">Futuristic</button>
+						<button class="supplementary_button supplementary_tag">Researched</button>
+					</span>
+					<button class="supplementary_button supplementary_original">Original</button>
+					<button class="supplementary_button supplementary_blank">Blank</button>
+				</div>
+
+				<div id="form-s2" class="formbox"></div>
+
+				<div id="form-s3-1" class="formbox"></div>
+				<div id="form-s3-2" class="formbox"></div>
+				<div id="form-s3-3" class="formbox"></div>
+				<div id="form-s3-4" class="formbox"></div>
+				<div id="form-s3-5" class="formbox"></div>
+				<div id="form-s3-6" class="formbox"></div>
+				<div id="form-s3-7" class="formbox"></div>
+				<div id="form-s3-8" class="formbox"></div>
+				<div id="form-s3-9" class="formbox"></div>
+				<div id="form-s3-10" class="formbox"></div>
+				<div id="form-s3-11" class="formbox"></div>
+				<div id="form-s3-12" class="formbox"></div>
+				<div id="form-s3-13" class="formbox"></div>
+				<div id="form-s3-14" class="formbox"></div>
+				<div id="form-s3-15" class="formbox"></div>
+				<div id="form-s3-16" class="formbox"></div>
+
+				<div id="form-s4" class="formbox"></div>
+
+				<div id="form-s5" class="formbox"></div>
+
+				<div id="form-s6" class="formbox"></div>
+
+			</main>
+			
+			<nav id="forwardarrow" class="arrow" onclick="next_state()"><i class="fas fa-chevron-right fa-vc"></i></nav>
+
+		</div>
+
+		<script src="js/evaluator.js"></script>
+
+	</body>
+
+</html>

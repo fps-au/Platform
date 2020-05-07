@@ -1,0 +1,290 @@
+@charset 'utf-8';
+
+// ########################################################################## //
+// VARIABLES
+
+// # DIMENSIONS
+$inputs-height: 14rem;
+$menubar-height: 30px;
+
+// # FONTS
+$sans-serif-stack: ('Helvetica', 'Arial', sans-serif);
+$serif-stack: ('Times New Roman', serif);
+$mono-stack: ('Consolas', monospace);
+
+// # COLOURS
+$colour-background: #f5f5f5;
+$colour-highlight: #fff;
+$colour-text: #141414;
+$colour-selection: #3297fd;
+$colour-bluedark: #90caf9;
+$colour-blue: #bbdefb;
+$colour-bluelight: #e3f2fd;
+$colour-formfocus: red;
+
+// ########################################################################## //
+// MIXINS
+
+@mixin cross-browser($property, $value) {
+	-webkit-#{$property}: $value;
+		 -moz-#{$property}: $value;
+			-ms-#{$property}: $value;
+					#{$property}: $value;
+}
+
+@mixin mpb($margin:0, $padding:0, $border:0) {
+		margin: $margin;
+		padding: $padding;
+		border: $border;
+}
+
+// ########################################################################## //
+// DECLARATIONS
+
+// -------------------------------------------------------------------------- //
+// # GENERAL
+// Those that are not app-specific.
+
+// Replaces standard box model with one where width/height are the actual
+// visable width/height. Padding & border cut into the box.
+
+html {
+	box-sizing: border-box;
+	@include cross-browser('font-smoothing', antialiased);
+	text-rendering: optimizeLegibility;
+
+	background-color: $colour-highlight;
+	font: 400 100%/1.5rem $sans-serif-stack;
+	overflow-y: hidden;
+	color: $colour-text;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+html, body, top {
+	@include mpb();
+	min-height: 100vh;
+}
+
+span.clear {
+		display: block;
+		clear: both;
+}
+
+.hide {
+		display: none;
+}
+
+// ## AESTHETICS
+
+::selection {
+		background-color: $colour-selection;
+		text-shadow: none;
+}
+
+#bookletbox {
+	display: block;
+	width: 100vw;
+	height: calc(100vh - #{$inputs-height} - #{$menubar-height});
+	@include mpb();
+	overflow-y: scroll;
+}
+
+#bookletpage {
+	display: block;
+	margin: 40px auto 200px auto;
+	width: 80vw;
+}
+
+#menubar {
+	display: block;
+	width: 100%;
+	height: $menubar-height;
+	background-color: $colour-bluelight;
+	@include mpb();
+	text-align: center;
+	line-height: $menubar-height;
+	border-bottom: 1px solid $colour-highlight;
+}
+
+div.inputs {
+	width: 100vw;
+	height: $inputs-height;
+	position: fixed;
+	bottom: 0;
+	background-color: $colour-blue;
+	border-top: 1px solid $colour-highlight;
+	@include mpb();
+}
+
+.smallcaps {
+	font-variant: small-caps;
+	font-weight: 700;
+}
+
+.dropdown {
+	font-family: $mono-stack;
+}
+
+nav.arrow {
+	display: block;
+	height: $inputs-height;
+	width: 14rem;
+	float: left;
+	background-color: $colour-blue;
+	cursor: pointer;
+	color: $colour-bluedark;
+	text-align: center;
+}
+
+nav.arrow:hover {
+	background-color: $colour-bluelight;
+}
+
+main {
+	display: block;
+	height: $inputs-height;
+	width: calc(100vw - 28rem);
+	float: left;
+}
+
+.formbox {
+	display: none;
+	width: 600px;
+	@include mpb(1rem auto, 0, 1px);
+	text-align: left;
+}
+
+.formbox.show {
+	display: block;
+}
+
+.fa-vc {
+	line-height: $inputs-height !important;
+}
+
+.floatleft, .floatright, .floatcentre {
+	@include mpb();
+	padding: 0 .6rem;
+}
+
+.floatleft, .floatright {
+	color: $colour-blue;
+}
+
+.floatleft {
+	display: inline-block;
+	float: left;
+}
+
+.floatcentre {
+	display: inline-block;
+	clear: left;
+}
+
+.floatright {
+	display: inline-block;
+	float: right;
+}
+
+#drag {
+	position: absolute;
+	margin: -4px 0;
+	height: 8px;
+	width: 100%;
+	cursor: ns-resize;
+}
+
+div.answer_index {
+	display: block;
+	float: left;
+	@include mpb(0 12px 12px 0, 4px, 2px solid $colour-text);
+	background-color: $colour-bluelight;
+	font-weight: 700;
+	height: 29px;
+	width: 36px;
+	text-align: center;
+	line-height: 17px;
+}
+
+select.supplementary_outcome {
+	display: block;
+	float: left;
+	width: 270px;
+	@include mpb(0 12px 12px 0, 4px, 0);
+	border: 2px solid $colour-text;
+}
+
+select.supplementary_category {
+	display: block;
+	float: left;
+	width: 270px;
+	@include mpb(0 0 12px 0, 4px, 0);
+	border: 2px solid $colour-text;
+}
+
+input.supplementary_comment {
+	display: block;
+	clear: both;
+	@include mpb(12px 0, 4px, 0);
+	width: 100%;
+	border-bottom: 2px solid $colour-text;
+}
+
+select.supplementary_outcome:focus, select.supplementary_category:focus {
+	border: 2px solid $colour-formfocus;
+}
+
+input.supplementary_comment:focus {
+	border-bottom: 2px solid $colour-formfocus;
+}
+
+button.supplementary_button {
+	display: block;
+	float: left;
+	@include mpb(0, 4px 8px, 0);
+	border: 2px solid $colour-bluelight;
+	background-color: $colour-bluelight;
+	height: 29px;
+}
+
+button.supplementary_button.on:after {
+	content: " \f00c";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+button.supplementary_tag {
+	width: 110px;
+	margin-right: 4px;
+}
+
+button.supplementary_tag:last-of-type {
+	margin-right: 12px;
+}
+
+button.supplementary_original {
+	width: 119px;
+	margin-right: 12px;
+}
+
+button.supplementary_blank {
+	width: 119px;
+	margin-right: 0;
+}
+
+button.supplementary_button:focus {
+	outline: none;
+	border: 2px solid $colour-formfocus;
+}
+
+select:focus, input:focus {
+	outline:none;
+}
+
+fieldset {
+	display: inline-block;
+	@include mpb();
+}
